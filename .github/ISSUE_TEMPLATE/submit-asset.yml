@@ -1,0 +1,56 @@
+name: "📦 提交素材"
+description: 提交你的素材到仓库
+title: "[素材提交]: "
+labels: ["submission"]
+assignees: []
+
+body:
+  - type: input
+    id: name
+    attributes:
+      label: 素材名称
+      placeholder: 例如：赛博朋克背景图
+    validations:
+      required: true
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: 素材类型
+      options:
+        - 图片 (images)
+        - 音乐 (audio)
+        - 音效 (sfx)
+        - 字体 (fonts)
+        - 其他 (others)
+    validations:
+      required: true
+
+  - type: textarea
+    id: preview
+    attributes:
+      label: 预览图 / 示例
+      description: 可以直接粘图片或链接
+      placeholder: 拖图片到这里或粘贴链接
+
+  - type: input
+    id: link
+    attributes:
+      label: 下载链接
+      placeholder: https://
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 说明
+      placeholder: 素材用途 / 来源 / 授权说明等
+
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: 确认
+      options:
+        - label: 我确认该素材可合法分享
+          required: true
