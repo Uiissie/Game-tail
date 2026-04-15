@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>素材库</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #0f172a;
+      color: white;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+    }
+    .section {
+      margin: 30px 0;
+    }
+    a {
+      color: #38bdf8;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🎨 素材共享库</h1>
+
+<div class="section">
+  <h2>🖼 图片</h2>
+  <ul id="images"></ul>
+</div>
+
+<div class="section">
+  <h2>🎵 音乐</h2>
+  <ul id="audio"></ul>
+</div>
+
+<div class="section">
+  <h2>🔊 音效</h2>
+  <ul id="sfx"></ul>
+</div>
+
+<div class="section">
+  <h2>🔤 字体</h2>
+  <ul id="fonts"></ul>
+</div>
+
+<script>
+const repo = "Uiissie/Game-tail";
+
+async function loadFiles(folder, elementId) {
+  const url = `https://api.github.com/repos/${repo}/contents/assets/${folder}`;
+  const res = await fetch(url);
+  const data = await res.json();
+
+  const list = document.getElementById(elementId);
+
+  data.forEach(file => {
+    if(file.type === "file") {
+      const li = document.createElement("li");
+      const link = document.createElement("a");
+      link.href = file.download_url;
+      link.innerText = file.name;
+      link.target = "_blank";
+      li.appendChild(link);
+      list.appendChild(li);
+    }
+  });
+}
+
+loadFiles("images", "images");
+loadFiles("audio", "audio");
+loadFiles("sfx", "sfx");
+loadFiles("fonts", "fonts");
+</script>
+
+</body>
+</html>
