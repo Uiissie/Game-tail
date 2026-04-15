@@ -25,10 +25,10 @@
 ## 📁 仓库结构
 
 assets/
-├── images/        # 图片素材
-├── audio/         # 背景音乐
-├── sfx/           # 音效（UI音效等）
-└── others/        # 其他资源
+- images/        # 图片素材
+- audio/         # 背景音乐
+- sfx/           # 音效（UI音效等）
+- others/        # 其他资源
 
 ---
 
